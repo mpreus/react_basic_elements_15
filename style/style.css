@@ -18,6 +18,11 @@ html, body {
 	max-width: 40rem;
 }
 
+#root > div:hover {
+	color: #000;
+	transition-duration: 2s;
+}
+
 h1 {
 	text-transform: uppercase;
 }
@@ -46,14 +51,3 @@ a {
 	cursor: pointer;
 	text-decoration: none;
 }
-
-
-
-
-
-
-
-
-
-
-
