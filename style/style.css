@@ -1,0 +1,43 @@
+html, body {
+	background: #dedede;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+}
+
+#root {
+	background: #fff;
+	background: url("../img/tło.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: .05rem solid #232323;
+	border-radius: .25rem;
+	box-shadow: inset .2rem .2rem 1.2rem .35rem #dedede;
+	margin: 1rem auto;
+	padding: 1rem;
+	text-align: center;
+	width: 30rem;
+}
+
+h1 {
+	text-transform: uppercase;
+}
+
+h2 {
+	margin-bottom: 3rem;
+}
+
+h3 {
+	margin-top: 3rem;
+}
+
+p {
+	font-size: .9rem;
+	margin-top: 0;
+}
+
+a {
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}

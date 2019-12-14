@@ -2,7 +2,7 @@ const Header = () => {
     return (
         <header>
             <h1>Zegar w react</h1>
-            <p>wyświetla bieżącą datę i godzinę (tylko i aż)</p>
+            <p>wyświetla bieżącą datę i godzinę (tylko i aż!)</p>
             <p>zmiana stanu co sekundę w module zegara</p>
         </header>
     )
@@ -69,22 +69,22 @@ function ClockTime({ date }) {
 
 /* data: rok, miesiąc, dzień */
 function ClockDateYear({date}) {
-	return <span> { date.getFullYear() }</span>
+	return <span>{ date.getFullYear() }</span>
 }
 /* miesiące (i dni tygodnia też) numerowane są począwszy od 0 */
-function ClockDateMonth ({date}) {
-	return <span> { date.getMonth() + 1 } </span>
+function ClockDateMonth({date}) {
+	return <span>{ (date.getMonth() + 1) < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1 }</span>
 }
 
-function ClockDateDay ({date}) {
+function ClockDateDay({date}) {
 	return <span>{ date.getDate() }</span>
 }
 /* data całość: */
-function ClockDate({ date }) {
+function ClockDate({date}) {
     return (
     	<h3>Dzisiejsza data:<span> </span>
-			<ClockDateYear date={date}/>:
-			<ClockDateMonth date={date}/>:
+			<ClockDateYear date={date}/>.
+			<ClockDateMonth date={date}/>.
 			<ClockDateDay date={date}/>
 		</h3>
 	);
