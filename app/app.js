@@ -11,7 +11,7 @@ const Header = () => {
 const Footer = () => {
     return (
         <footer>
-            <p>korzysta z react@16 i react-DOM development oraz babel.min standalone, co pozwala skupić się na samym <strong>react</strong></p>
+            <p>korzysta z react@16 i react-DOM development oraz babel.min standalone,<br/>co pozwala skupić się na samym <strong>react</strong></p>
             <p>czas oczywiście sieciowy <b>;-)</b></p>
             <p><a href="mailto:mpreus@onet.eu">napisz do autora</a></p>
         </footer>
@@ -52,7 +52,7 @@ function ClockHour({date}) {
 function ClockMinute({date}) {
 	return <span>{ date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes() }</span>
 }
-                /* ternary operator by wyświetlać: 01, 02, 03... jako minuty i sekundy, zamiast 1, 2, 3... */
+                /* 'ternary operator' by wyświetlać: 01, 02, 03... jako minuty i sekundy, zamiast 1, 2, 3... */
 function ClockSecond({date}) {
 	return <span>{ date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds() }</span>
 }
@@ -71,7 +71,8 @@ function ClockTime({ date }) {
 function ClockDateYear({date}) {
 	return <span>{ date.getFullYear() }</span>
 }
-/* miesiące (i dni tygodnia też) numerowane są począwszy od 0 */
+/* miesiące (i dni tygodnia też) numerowane są począwszy od 0, stąd '+1', 
+'ternary operator' by wyświetlać: 01, 02, 03... zamiast 1, 2, 3... jako styczeń, luty, marzec... */
 function ClockDateMonth({date}) {
 	return <span>{ (date.getMonth() + 1) < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1 }</span>
 }
