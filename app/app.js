@@ -8,6 +8,16 @@ const Header = () => {
     )
 }
 
+const Footer = () => {
+    return (
+        <footer>
+            <p>korzysta z react@16 i react-DOM development oraz babel.min standalone, co pozwala skupić się na samym <strong>react</strong></p>
+            <p>czas oczywiście sieciowy <b>;-)</b></p>
+            <p><a href="mailto:mpreus@onet.eu">napisz do autora</a></p>
+        </footer>
+    )
+}
+
 class Clock extends React.Component {
     state = {                     /* aktualna data */
         date: new Date()
@@ -40,20 +50,20 @@ function ClockHour({date}) {
 }
 
 function ClockMinute({date}) {
-	return <span>{ date.getMinutes() }</span>
+	return <span>{ date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes() }</span>
 }
-
+                /* ternary operator by wyświetlać: 01, 02, 03... jako minuty i sekundy, zamiast 1, 2, 3... */
 function ClockSecond({date}) {
-	return <span>{ date.getSeconds() }</span>
+	return <span>{ date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds() }</span>
 }
 /* zegar całość: */
 function ClockTime({ date }) {
     return (
-		<h1>
+		<h2>Bieżąca godzina:<span> </span>
 			<ClockHour date={date}/>:
 			<ClockMinute date={date}/>:
 			<ClockSecond date={date}/>
-		</h1>
+		</h2>
     );
 }
 
@@ -61,7 +71,7 @@ function ClockTime({ date }) {
 function ClockDateYear({date}) {
 	return <span> { date.getFullYear() }</span>
 }
-
+/* miesiące (i dni tygodnia też) numerowane są począwszy od 0 */
 function ClockDateMonth ({date}) {
 	return <span> { date.getMonth() + 1 } </span>
 }
@@ -72,11 +82,11 @@ function ClockDateDay ({date}) {
 /* data całość: */
 function ClockDate({ date }) {
     return (
-    	<h4>
+    	<h3>Dzisiejsza data:<span> </span>
 			<ClockDateYear date={date}/>:
 			<ClockDateMonth date={date}/>:
 			<ClockDateDay date={date}/>
-		</h4>
+		</h3>
 	);
 }
 
@@ -85,6 +95,7 @@ function App() {
     	<React.Fragment>
             <Header />
             <Clock />
+            <Footer />
         </React.Fragment>
     );
 }
@@ -93,11 +104,3 @@ ReactDOM.render(
     <App />, 
     document.getElementById("root")
 );
-
-
-
-
-
-
-
-
